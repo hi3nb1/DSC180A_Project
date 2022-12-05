@@ -1,0 +1,4 @@
+{
+    "dockerhub-id": "hiienbuii/project1",
+    "build-script": "run.py all"
+}
