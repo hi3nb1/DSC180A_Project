@@ -5,8 +5,8 @@ import sys
 import os
 
 cwd = os.getcwd()
-out = os.path.join(cwd, 'output')
-sys.path.insert(0, cwd+'src')
+out = os.path.join(cwd, '/output')
+sys.path.insert(0, cwd+'/src')
 
 import bayesian
 import etc
