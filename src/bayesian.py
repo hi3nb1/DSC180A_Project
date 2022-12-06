@@ -2,9 +2,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def bay(arm1,arm2,priors):
+def bay(arm1,arm2,priors,sim):
     regret = []
-    for j in range(100):
+    for j in range(sim):
         arms = [0]*1000
         s=0
         f=0

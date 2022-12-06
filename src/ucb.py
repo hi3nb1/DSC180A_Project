@@ -2,9 +2,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def normal(m1, m2, n, error):
+def normal(m1, m2, n, error, sim):
     regret = []
-    for i in range(100):
+    for i in range(sim):
         true_reward = max(m1, m2) * n
 
         m1_empirical = []
@@ -36,9 +36,9 @@ def normal(m1, m2, n, error):
 
 #####
 
-def bernoulli(b1, b2, n, error):
+def bernoulli(b1, b2, n, error, sim):
     regret = []
-    for i in range(100):
+    for i in range(sim):
         true_reward = max(b1, b2) * n
 
         arm1_count = 0
@@ -74,9 +74,9 @@ def bernoulli(b1, b2, n, error):
 
 #####
 
-def asymptotic(m1, m2, n):
+def asymptotic(m1, m2, n, sim):
     regret = []
-    for i in range(100):
+    for i in range(sim):
         true_reward = max(m1, m2) * n
 
         arm1_count = 1
@@ -107,9 +107,9 @@ def asymptotic(m1, m2, n):
 
 #####
 
-def moss_normal(m1, m2, n):
+def moss_normal(m1, m2, n, sim):
     regret = []
-    for i in range(100):
+    for i in range(sim):
         true_reward = max(m1, m2) * n
 
         arm1_count = 1
@@ -140,9 +140,9 @@ def moss_normal(m1, m2, n):
 
 #####
 
-def moss_bernoulli(b1, b2, n):
+def moss_bernoulli(b1, b2, n, sim):
     regret = []
-    for i in range(100):
+    for i in range(sim):
         true_reward = max(b1, b2) * n
 
         arm1_count = 1
@@ -173,7 +173,7 @@ def moss_bernoulli(b1, b2, n):
 
 #####
 
-def kl(b1, b2, n):
+def kl(b1, b2, n, sim):
     def divergence(p, q):
         if p == 0:
             if q == 0:
@@ -186,7 +186,7 @@ def kl(b1, b2, n):
         return p*np.log(p/q) + (1-p)*np.log((1-p)/(1-q))
     
     regret = []
-    for i in range(100):
+    for i in range(sim):
         true_reward = max(b1, b2) * n
 
         arm1_count = 1
@@ -247,11 +247,11 @@ def kl(b1, b2, n):
 
 #####
 
-def linear(d, lamb, n, a, v):
+def linear(d, lamb, n, a, v, sim):
     regret = []
     optimal = max([v*a[0], v*a[1]])*n
     
-    for j in range(100):
+    for j in range(sim):
         arm1_reward = []
         arm2_reward = []
         

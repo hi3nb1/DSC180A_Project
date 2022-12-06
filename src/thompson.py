@@ -2,9 +2,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def normal(priors, means, n):
+def normal(priors, means, n, sim):
     regret = []
-    for i in range(100):
+    for i in range(sim):
         arm1_reward = []
         arm2_reward = []
         
@@ -31,9 +31,9 @@ def normal(priors, means, n):
 
 #####
 
-def bernoulli(priors, prob, n):
+def bernoulli(priors, prob, n, sim):
     regret = []
-    for i in range(100):
+    for i in range(sim):
         arm1_reward = []
         arm2_reward = []
         
@@ -71,11 +71,11 @@ def bernoulli(priors, prob, n):
 
 #####
 
-def linear(means, n, v, prior=[0,1]):
+def linear(means, n, v, sim, prior=[0,1]):
     regret = []
     optimal = max([v*means[0], v*means[1]]) * n
     
-    for i in range(1000):
+    for i in range(sim):
         arm1_reward = []
         arm2_reward = []
         post = prior.copy()
