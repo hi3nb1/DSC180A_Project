@@ -25,7 +25,7 @@ etc_normal = etc.normal(mean1, mean2, n, m)
 
 # ETC Bernoulli Parameters
 prob1 = 0
-prob2 = [0.01*i for i in range(50)] + [0.01*i for i in range(51, 101)]
+prob2 = [0.01*i for i in range(1,101)]
 # ETC Bernoulli Function
 etc_bernoulli = etc.bernoulli(prob1, prob2, n, m)
 
