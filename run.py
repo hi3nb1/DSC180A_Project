@@ -13,7 +13,8 @@ import etc
 import thompson
 import ucb
 
-test, n = 15, 10 if sys.argv[1] == 'test' else 100, 1000
+test = 15 if sys.argv[1] == 'test' else 100
+n = 10 if sys.argv[1] == 'test' else 1000
 
 # ETC Normal Parameters
 mean1 = 0
