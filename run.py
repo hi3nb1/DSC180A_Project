@@ -13,12 +13,11 @@ import etc
 import thompson
 import ucb
 
-test = 15 if sys.argv[1] == 'test' else 100
+test, n = 15, 10 if sys.argv[1] == 'test' else 100, 1000
 
 # ETC Normal Parameters
 mean1 = 0
 mean2 = [0.01*i for i in range(1,101)]
-n = 1000
 m = [25,50,75,100]
 # ETC Normal Function
 etc_normal = etc.normal(mean1, mean2, n, m)
