@@ -35,7 +35,7 @@ etc_bernoulli = etc.bernoulli(prob1, prob2, n, m, test)
 error = 1/(1000*2)
 # UCB Normal Function
 ucb_normal = pd.DataFrame()
-ucb_normal['μ2-μ1'] = [each - mean1 for each in mean2]
+ucb_normal['mu2-mu1'] = [each - mean1 for each in mean2]
 ucb_normal['regret'] = [ucb.normal(mean1, each, n, error, test)[0] for each in mean2]
 ucb_normal['variance'] = [ucb.normal(mean1, each, n, error, test)[1] for each in mean2]
 
@@ -43,13 +43,13 @@ ucb_normal['variance'] = [ucb.normal(mean1, each, n, error, test)[1] for each in
 ucb_prob1 = 1/2
 # UCB Bernoulli Function
 ucb_bernoulli = pd.DataFrame()
-ucb_bernoulli['μ2-μ1'] = [each - ucb_prob1 for each in prob2]
+ucb_bernoulli['mu2-mu1'] = [each - ucb_prob1 for each in prob2]
 ucb_bernoulli['regret'] = [ucb.bernoulli(ucb_prob1, each, n, error, test)[0] for each in prob2]
 ucb_bernoulli['variance'] = [ucb.bernoulli(ucb_prob1, each, n, error, test)[1] for each in prob2]
 
 # UCB Normal Asymptotic Function
 ucb_asymp = pd.DataFrame()
-ucb_asymp['μ2-μ1'] = [each - mean1 for each in mean2]
+ucb_asymp['mu2-mu1'] = [each - mean1 for each in mean2]
 asymp_regret = []
 asymp_var = []
 for each in mean2:
@@ -61,19 +61,19 @@ ucb_asymp['variance'] = asymp_var
 
 # UCB Normal Moss Function
 ucb_n_moss = pd.DataFrame()
-ucb_n_moss['μ2-μ1'] = [each - mean1 for each in mean2]
+ucb_n_moss['mu2-mu1'] = [each - mean1 for each in mean2]
 ucb_n_moss['regret'] = [ucb.moss_normal(mean1, each, n, test)[0] for each in mean2]
 ucb_n_moss['variance'] = [ucb.moss_normal(mean1, each, n, test)[1] for each in mean2]
 
 # UCB Bernoulli Moss Function
 ucb_b_moss = pd.DataFrame()
-ucb_b_moss['μ2-μ1'] = [each - prob1 for each in prob2]
+ucb_b_moss['mu2-mu1'] = [each - prob1 for each in prob2]
 ucb_b_moss['regret'] = [ucb.moss_bernoulli(prob1, each, n, test)[0] for each in prob2]
 ucb_b_moss['variance'] = [ucb.moss_bernoulli(prob1, each, n, test)[1] for each in prob2]
 
 # UCB Bernoulli KL Function
 kl = pd.DataFrame()
-kl['μ2-μ1'] = [each - ucb_prob1 for each in prob2]
+kl['mu2-mu1'] = [each - ucb_prob1 for each in prob2]
 kl['regret'] = [ucb.kl(ucb_prob1, each, n, test)[0] for each in prob2]
 kl['variance'] = [ucb.kl(ucb_prob1, each, n, test)[1] for each in prob2]
 
@@ -129,7 +129,7 @@ for key,value in mean_dict.items():
         nvariance.append(var)
         
     nout = pd.DataFrame()
-    nout['μ2-μ1'] = ndiff
+    nout['mu2-mu1'] = ndiff
     nout['regret'] = nregret
     nout['variance'] = nvariance
     n_results[key+'- '+str(value)] = nout
@@ -156,7 +156,7 @@ for key,value in beta_dict.items():
         bvariance.append(var)
         
     bout = pd.DataFrame()
-    bout['μ2-μ1'] = bdiff
+    bout['mu2-mu1'] = bdiff
     bout['regret'] = bregret
     bout['variance'] = bvariance
     b_results[key+'- '+str(value)] = bout
